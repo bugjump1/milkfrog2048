@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="奶蛙 2048 —— 一个可部署到 GitHub Pages 的 2048 小游戏" />
+  <title>奶蛙 2048</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="game">
+    <header class="header">
+      <div class="title-row">
+        <h1 class="title">2048<span class="subtitle">奶蛙版</span></h1>
+        <div class="scores">
+          <div class="score-box" id="score-box">
+            <span class="score-label">得分</span>
+            <span class="score-value" id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="score-label">最高分</span>
+            <span class="score-value" id="best">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="actions-row">
+        <p class="hint">用 <b>方向键</b>、<b>鼠标拖动</b> 或 <b>触屏滑动</b> 移动方块，相同数字合并，冲向 <b>2048</b>！</p>
+        <div class="buttons">
+          <button id="btn-new" class="btn" type="button">新游戏</button>
+          <button id="btn-lb" class="btn btn-icon" type="button" title="排行榜" aria-label="排行榜">🏆</button>
+          <button id="btn-sound" class="btn btn-icon" type="button" title="静音">🔊</button>
+          <button id="btn-theme" class="btn btn-icon" type="button" title="切换主题">🎨</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="board" id="board">
+      <div class="cells">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="tiles" id="tiles"></div>
+      <div class="overlay hidden" id="overlay">
+        <p class="overlay-title" id="overlay-title"></p>
+        <p class="overlay-sub" id="overlay-sub"></p>
+        <div class="overlay-actions">
+          <button id="btn-overlay-primary" class="btn" type="button">再来一局</button>
+          <button id="btn-continue" class="btn btn-ghost hidden" type="button">继续游戏</button>
+        </div>
+        <p class="lb-status hidden" id="lb-status"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>方向键 / WASD / 鼠标拖动 · 手机上滑动操作</p>
+      <p>灵感来自 Gabriele Cirulli 的 2048</p>
+    </footer>
+  </main>
+
+  <div class="lb-modal hidden" id="lb-modal">
+    <div class="lb-backdrop" id="lb-backdrop"></div>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="排行榜">
+      <div class="lb-head">
+        <h2>排行榜</h2>
+        <span class="lb-mode local" id="lb-mode">本机</span>
+        <button class="btn btn-icon" id="lb-close" type="button" title="关闭" aria-label="关闭排行榜">✕</button>
+      </div>
+      <p class="lb-me">我的身份：<b id="lb-identity"></b></p>
+      <ol class="lb-list" id="lb-list"></ol>
+      <p class="lb-foot" id="lb-foot"></p>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/skin-manifest.js"></script>
+  <script src="js/audio-manifest.js"></script>
+  <script src="js/skin.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
